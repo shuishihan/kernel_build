@@ -46,7 +46,7 @@ jobs:
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
                                   dtc=/usr/bin/dtc"
           cd kernel-source
-          #chmod -R 777 ./prebuilt/dtc
+          chmod -R 777 ./scripts/clang-android.sh
           #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           #echo "CONFIG_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
