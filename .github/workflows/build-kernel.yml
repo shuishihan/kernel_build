@@ -47,7 +47,7 @@ jobs:
                                   dtc=/usr/bin/dtc"
           cd kernel-source
           #chmod -R 777 ./prebuilt/dtc
-          #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           #echo "CONFIG_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           #echo "CONFIG_HAVE_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
