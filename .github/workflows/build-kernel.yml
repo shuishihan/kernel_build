@@ -30,8 +30,8 @@ jobs:
 
       - name: Pull kernel source
         run: |
-          git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel-source
-          git clone https://github.com/shuishihan/android_kernel_modules_and_devicetree_oneplus_sm8150.git 
+          git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel/kernel-source
+          git clone https://github.com/shuishihan/android_kernel_modules_and_devicetree_oneplus_sm8150.git vendor
           echo "KERNEL_VERSION="$(cat kernel-source/arch/arm64/configs/${{ env.KERNEL_TARGET }}_defconfig | grep "CONFIG_LOCALVERSION\=" | sed -r 's/.*"(.+)".*/\1/' | sed 's/^.//')"" >> $GITHUB_ENV
 
       - name: Build kernel
@@ -46,7 +46,7 @@ jobs:
                                   CROSS_COMPILE=$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- 
                                   dtc=/usr/bin/dtc"
-          cd kernel-source
+          cd kernel/kernel-source
           chmod -R 777 ./prebuilt/dtc
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
