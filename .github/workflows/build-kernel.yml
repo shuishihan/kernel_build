@@ -50,12 +50,12 @@ jobs:
                                   dtc=/usr/bin/dtc"
           cd kernel/msm-4.14
           chmod -R 777 ./prebuilt/dtc
-#          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-#          echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-#          echo "CONFIG_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-#          echo "CONFIG_HAVE_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-#          echo "CONFIG_KPROBE_EVENTS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
-#          echo "CONFIG_OVERLAY_FS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
+          #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+          #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
+          #echo "CONFIG_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
+          #echo "CONFIG_HAVE_KPROBES=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
+          #echo "CONFIG_KPROBE_EVENTS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
+          #echo "CONFIG_OVERLAY_FS=y" >> ./arch/arm64/configs/sm8150-perf_defconfig
           make ${args} ${{ env.KERNEL_TARGET }}_defconfig
           make -j64 ${args}
 
